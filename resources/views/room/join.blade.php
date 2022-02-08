@@ -26,7 +26,7 @@
 		<video autoplay="" class="" id="friend"> </video>
 
 		<!--  me  -->
-		<video autoplay="" class= rounded-circle" id="me"> </video>
+		<video autoplay="" class="rounded-circle" id="me"> </video>
 	</div>
 </div>
 
@@ -53,6 +53,14 @@
 	var channel = pusher.subscribe('room-channel')
 	var room_name = "{{ $room_name }}"
 	var peer = new Peer()
+	
+	// set my video
+	getMyMedia()
+	.then(stream => {
+		var v = document.querySelector("#me")
+		v.srcObject = stream
+	})
+	.catch(e => console.log( e) )
 
 
 	// receiver peer ID

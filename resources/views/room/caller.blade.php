@@ -45,7 +45,17 @@
 	var channel = pusher.subscribe('room-channel')
 	var room_name = "{{ $room_name}}"
 	var peer = new Peer()
-
+	
+	// set my video
+	getMyMedia()
+	.then(stream => {
+		var v = document.querySelector("#me")
+		v.srcObject = stream
+	})
+	.catch(e => console.log( e) )
+	
+	
+	// listen to event
 	channel.bind(room_name, function(data) {
 		if (typeof data == "string") {
 			data = JSON.parse(data)
@@ -68,16 +78,13 @@
 				console.log("stream received")
 				var vi = document.querySelector("#friend")
 				vi.srcObject = stream
-			})
+		})
 	}
 
 	function call(data, callback) {
 		getMyMedia()
 		.then(function(media) {
 
-			// set my video
-			var me = document.querySelector("#me")
-			me.srcObject = media
 
 			// place call
 			var call = peer.call(data.peer_id, media)
