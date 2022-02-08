@@ -20,7 +20,7 @@
 
 
 	<nav class="navbar  navbar-expand-md fixed-top ">
-		<a href="/" class="ac navbar-brand">Vid Call</a>
+		<a href="/" class="ac navbar-brand">Vidd Call</a>
 		<button class="navbar-toggler " data-target="#co" data-toggle="collapse">
 			<span class="fa fa-bars text-white"></span>
 		</button>
