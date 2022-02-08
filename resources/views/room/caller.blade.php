@@ -21,7 +21,7 @@
 		<video class="" id="friend" autoplay=""> </video>
 
 		<!--  me  -->
-		<video autoplay="" class="border rounded" id="me"> </video>
+		<video autoplay="" class="rounded-circle" id="me"> </video>
 	</div>
 </div>
 
