@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Home</title>
+	<title></title>
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/aos.css') }}">
