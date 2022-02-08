@@ -21,7 +21,7 @@
 		<video class="" id="friend" autoplay=""> </video>
 
 		<!--  me  -->
-		<video autoplay="" meted class="" id="me"> </video>
+		<video autoplay="" muted class="" id="me"> </video>
 	</div>
 </div>
 
