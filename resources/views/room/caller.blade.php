@@ -65,7 +65,9 @@
 
 	function myCallBackFunc(call) {
 		call.on("stream",
-			function(stream) {
+			function() {
+				console.log("stream received")
+				console.log(stream)
 				var vi = document.querySelector("#friend")
 				vi.srcObject = vi
 			})
