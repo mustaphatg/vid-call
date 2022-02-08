@@ -1,0 +1,29 @@
+.bg-app{
+	background: #000621;
+}
+
+
+.navbar{
+	border-bottom: 2px solid #172E9A;
+}
+
+
+.cap{
+	margin-top: 200px;
+	margin-bottom: 30px;
+	font-family: 'Supermercado One', cursive;
+}
+
+.ac{
+	font-family: 'Yellowtail', cursive;
+	font-size: 30px;
+}
+
+.navbar-collapse{
+	background: #000621;
+}
+
+body{
+	padding-top: 80px;
+}
+
