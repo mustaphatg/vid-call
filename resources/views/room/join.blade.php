@@ -133,7 +133,7 @@
 			call.answer(stream)
 		})
 		.catch(er => {
-			console.log(err);
+			console.log(er);
 			console.log("retrying answer call & to get permission...")
 			answerCall()
 		})
