@@ -91,7 +91,11 @@
 			callback(call)     // callback at work
 			console.log("Calling...")
 		})
-		.catch(e => console.log(e))
+		.catch(e => {
+			console.log(e)
+			console.log("retrying...")
+			call(data, callback)
+		})
 	}
 
 

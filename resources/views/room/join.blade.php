@@ -78,12 +78,10 @@
 			if(connected == null){
 				sendData(id)
 			}
-			
-			setTimeout(reSend, 2000)
+			setTimeout(reSend, 3000)
 		}
 		
-		reSend(id)
-		
+		//reSend(id)
 	});
 
 
@@ -91,15 +89,9 @@
 	peer.on("call", function(call) {
 
 		console.log("Call Received")
-
+		
 		// answer
-		getMyMedia()
-		.then(stream => {
-			call.answer(stream)
-		})
-		.catch(er => {
-			console.log(err);
-		})
+		answerCall(call)
 
 		
 		call.on("stream", function(stream) {
@@ -130,7 +122,17 @@
 
 
 
-
+	function answerCall(call){
+		getMyMedia()
+		.then(stream => {
+			call.answer(stream)
+		})
+		.catch(er => {
+			console.log(err);
+			console.log("retrying to get permission...")
+			answerCall()
+		})
+	}
 
 
 
