@@ -54,6 +54,8 @@
 	var room_name = "{{ $room_name }}"
 	var peer = new Peer()
 	
+	var connected = null
+	
 	// set my video
 	getMyMedia()
 	.then(stream => {
@@ -71,6 +73,17 @@
 
 		// send peer id to caller
 		sendData(id)
+		
+		function reSend(id){
+			if(connected == null){
+				sendData(id)
+			}
+			
+			setTimeout(reSend, 2000)
+		}
+		
+		reSend(id)
+		
 	});
 
 
@@ -91,7 +104,9 @@
 		
 		call.on("stream", function(stream) {
 			console.log("Stream received", stream)
-
+			
+			connected = true
+			
 			// play stream
 			var video = document.querySelector("#friend")
 			video.srcObject = stream
