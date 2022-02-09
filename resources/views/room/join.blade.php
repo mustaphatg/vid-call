@@ -27,6 +27,8 @@
 
 		<!--  me  -->
 		<video autoplay="" muted="muted" class="" id="me"> </video>
+	
+		<p class="text-center" id="message">Locating caller...</p>
 	</div>
 </div>
 
@@ -55,6 +57,7 @@
 	var peer = new Peer()
 	
 	var connected = null
+	const message = $("#message")
 	
 	// set my video
 	getMyMedia()
@@ -89,6 +92,7 @@
 	peer.on("call", function(call) {
 
 		console.log("Call Received")
+		message.text("Answering call...")
 		
 		// answer
 		answerCall(call)
@@ -98,6 +102,7 @@
 			console.log("Stream received", stream)
 			
 			connected = true
+			message.text("")
 			
 			// play stream
 			var video = document.querySelector("#friend")
@@ -129,7 +134,7 @@
 		})
 		.catch(er => {
 			console.log(err);
-			console.log("retrying to get permission...")
+			console.log("retrying answer call & to get permission...")
 			answerCall()
 		})
 	}

@@ -22,6 +22,8 @@
 
 		<!--  me  -->
 		<video autoplay="" muted="muted" class="" id="me"> </video>
+	
+		<p class="text-center" id="message">Calling ...</p>
 	</div>
 </div>
 
@@ -46,13 +48,17 @@
 	var room_name = "{{ $room_name}}"
 	var peer = new Peer()
 	
+	const message = $("#message")
+	
 	// set my video
 	getMyMedia()
 	.then(stream => {
 		var v = document.querySelector("#me")
 		v.srcObject = stream
 	})
-	.catch(e => console.log( e) )
+	.catch(e => {
+		console.log(e)
+	} )
 	
 	
 	// listen to event
@@ -67,6 +73,7 @@
 			console.log("Peer Id received")
 
 			// use callback to collect the call object
+			message.text("Connection received, peering...")
 			call(data, myCallBackFunc)
 		}
 
@@ -78,6 +85,7 @@
 				console.log("stream received")
 				var vi = document.querySelector("#friend")
 				vi.srcObject = stream
+				message.text("")
 		})
 	}
 
@@ -85,15 +93,15 @@
 		getMyMedia()
 		.then(function(media) {
 
-
 			// place call
 			var call = peer.call(data.peer_id, media)
-			callback(call)     // callback at work
+			callback(call)     // callback at work to receive call
 			console.log("Calling...")
+			message.text("Connected")
 		})
 		.catch(e => {
 			console.log(e)
-			console.log("retrying...")
+			console.log("retrying to call ...")
 			call(data, callback)
 		})
 	}

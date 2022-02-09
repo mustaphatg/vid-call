@@ -28,7 +28,16 @@
 		border-radius: 50%;
 	}
 
-
+	#message{
+		position: fixed;
+		font-family: Courier New;
+		right: 0px;
+		left: 0px;
+		margin: auto;
+		z-index: 999999;
+		color: white;
+		bottom: 20px;
+	}
 
 	[stop-call] {
 		position: absolute;
