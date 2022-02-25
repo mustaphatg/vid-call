@@ -12,7 +12,7 @@
 		<div class="row text-center">
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="m-2">
-					<a href="//github.com" style="background:linear-gradient(to right, #42529A, #172E9A )" class="btn btn-info w-75"> Source code on github </a>
+					<a href="https://github.com/mustaphatg/vid-call" style="background:linear-gradient(to right, #42529A, #172E9A )" class="btn btn-info w-75"> Source code on github </a>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
